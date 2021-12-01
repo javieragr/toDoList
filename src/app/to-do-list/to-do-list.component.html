@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+
+    <title>title</title>
+</head>
+
+
+
+<body>
+
+    <div class="container-fluid">
+        <form [formGroup]="miFormulario">
+            <div class="form-group">
+                <label for="theDate">Date</label>
+                <wj-input-date #theDate formControlName="Fecha" id="theDate"></wj-input-date>
+            </div>
+
+            <div class=" col-md-3">
+                <label class="form-label">Observations</label>
+                <input type="text" formControlName="Observations" class="form-control">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" formControlName="Done" class="form-check-input">
+                <label class="form-check-label">Done</label>
+            </div>
+
+            <button type="submit" (click)="addToArray()" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+
+
+
+
+    <div class="col-md-3 offset-md-1">
+        <app-flex [lista]="itemsParaFlex"></app-flex>
+    </div>
+
+    <div class="col-md-3">
+        <app-observations></app-observations>
+
+    </div>
+
+    formulario <pre>{{miFormulario.value |json}}</pre> items
+    <pre>{{itemsParaFlex|json}}</pre>
+</body>
+
+</html>

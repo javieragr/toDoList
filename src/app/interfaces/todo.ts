@@ -1,5 +1,5 @@
 export interface Todo{
-    Fecha:Date;
-    Observations :string;
-    Done:boolean;
+    fecha:Date;
+    observations :string;
+    done:boolean;
 }

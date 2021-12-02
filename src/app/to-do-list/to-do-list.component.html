@@ -16,15 +16,15 @@
         <form [formGroup]="miFormulario">
             <div class="form-group">
                 <label for="theDate">Date</label>
-                <wj-input-date #theDate formControlName="Fecha" id="theDate"></wj-input-date>
+                <wj-input-date #theDate formControlName="fecha" id="theDate"></wj-input-date>
             </div>
 
             <div class=" col-md-3">
                 <label class="form-label">Observations</label>
-                <input type="text" formControlName="Observations" class="form-control">
+                <input type="text" formControlName="observations" class="form-control">
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" formControlName="Done" class="form-check-input">
+                <input type="checkbox" formControlName="done" class="form-check-input">
                 <label class="form-check-label">Done</label>
             </div>
 
@@ -35,7 +35,7 @@
 
 
 
-    <div class="col-md-3 offset-md-1">
+    <div class="col-md-6 offset-md-1">
         <app-flex [lista]="itemsParaFlex"></app-flex>
     </div>
 

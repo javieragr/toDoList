@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Todo } from '../interfaces/todo';
 import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 
@@ -7,22 +7,36 @@ import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@ang
   templateUrl: './to-do-list.component.html',
   
 })
+
 export class ToDoListComponent implements OnInit {
 
+
+  viewchild: any;
+
   miFormulario: FormGroup= this.fb.group({
-    Fecha:[new Date()],
-    Observations:[''],
-    Done:[false]
+    fecha:[new Date()],
+    observations:[''],
+    done:[false]
   })
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder) {
+   
+  }
   entity:Todo={
-    Fecha:new Date(),
-    Observations :'xxx',
-    Done:false
+    fecha:new Date(),
+    observations :'xxx',
+    done:false
   }
 
  
   itemsParaFlex:Todo[]= [];
+  // private _itemsParaFlex:Todo[]=[];
+  // public get itemsParaFlex(){
+  //   return this._itemsParaFlex;
+  // };
+  // public set itemsParaFlex(list: Todo[]){
+  //   this._itemsParaFlex = list;
+  // }
+
   ngOnInit(): void {
     //this.itemsParaFlex=[];
   }

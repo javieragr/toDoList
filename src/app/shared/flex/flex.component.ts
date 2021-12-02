@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,ViewChild } from '@angular/core';
 
-import { CollectionView, EventArgs } from 'wijmo/wijmo';
+import * as wjcCore from '@grapecity/wijmo';
+import * as wjcGrid from '@grapecity/wijmo.grid';
+import * as wjcGridFilter from '@grapecity/wijmo.grid.filter';
 
 import { Todo } from '../../interfaces/todo';
 @Component({
@@ -15,29 +17,37 @@ export class FlexComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() lista:Todo[]= [];
-  
-  title = 'Wijmo Starter App';
-  //data = this.getData();
-  getData() {
-    // var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
-    //     data = [];
-    // for (var i = 0; i < countries.length; i++) {
-    //   data.push({
-    //     country: countries[i],
-    //     sales: Math.random() * 10000,
-    //     expenses: Math.random() * 5000,
-    //     downloads: Math.round(Math.random() * 20000),
-    //   });
-    // }
-    return new CollectionView(this.lista);
+  private _lista:Todo[]= [];
+  @Input() get lista():Todo[]{
+    return this._lista;
+  }
+  @ViewChild('flex') mainGrid = wjcGrid.FlexGrid;
+  public set lista(lista:Todo[]){
+    console.log('changed', lista);
+    this._lista = lista;
+   //this.mainGrid.collectionView!.refresh()
+    
    
     
-  }
-  itemSourceChanged(e?: EventArgs){
-  console.log(e);
-  
 
+  }
+ 
+  title = 'Wijmo Starter App';
+  //data = this.getData();
+  iniciaFlex(s:any,e:any){
+    console.log(s,e);
+    
+
+  }
+  
+   grid:any;
+  refresh(){
+    
+    //this.mainGrid.itemsSource=[];
+    this.mainGrid
+    console.log(this.lista);
+  //  this.grid= wijmo.getElement(flex)
+    
   }
 
 

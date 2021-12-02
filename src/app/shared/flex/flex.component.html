@@ -1,4 +1,4 @@
-<wj-flex-grid #flex [itemsSource]="" (itemsSourceChanged)="itemSourceChanged($event)" [itemsSource]="lista" [allowAddNew]="true" [allowDelete]="false">
+<wj-flex-grid #flex id="flex"  [itemsSource]="lista" [allowAddNew]="true" [allowDelete]="false">
     <wj-flex-grid-column binding="number" header="Number" [width]="100" [isReadOnly]="true"></wj-flex-grid-column>
     <wj-flex-grid-column binding="fecha" format="dd/MM/yyyy" header="Date" [width]="100" [isReadOnly]="false" [editor]="theInputDate"></wj-flex-grid-column>
     <wj-flex-grid-column binding="done" header="Done" [width]="100" [isReadOnly]="true"></wj-flex-grid-column>
@@ -6,5 +6,7 @@
 </wj-flex-grid>
 
 
-<wj-input-date #theInputDate format="MM/dd/yyyy" [isRequired]="false">
+<wj-input-date  #theInputDate format="MM/dd/yyyy" [isRequired]="false">
 </wj-input-date>
+
+<button (click)="refresh()" >Refresh</button>
